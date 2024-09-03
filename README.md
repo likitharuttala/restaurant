@@ -23,3 +23,10 @@ This project is a web application designed to streamline restaurant operations, 
    - Seamless interaction between frontend and backend via API calls.
    - Thorough testing ensures cross-browser and device compatibility.
 
+4. **payment gateway integration:**
+   Stripe payment gateway is integrated into the application to handle secure online transactions. This allows customers to make payments directly through the platform, 
+   ensuring a smooth and secure checkout process.
+   
+
+ 
+
