@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .item-list {
+            margin-top: 20px;
+        }
+        .item {
+            margin-bottom: 10px;
+        }
+        .item-name {
+            font-weight: bold;
+        }
+        .item-details {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Success</h1>
+
+    {% if order %}
+        <h2>Thank you for your purchase, {{ order.name }}!</h2>
+        <p>Order ID: {{ order_id }}</p>
+        <p>Amount: ₹{{ order.amount }}</p>
+
+        <h3>Items:</h3>
+        {% if items_list %}
+            <div class="item-list">
+                {% for item in items_list %}
+                    <div class="item">
+                        <div class="item-name">Item ID: {{ item.id }}</div>
+                        <div class="item-details">
+                            <p>Quantity: {{ item.quantity }}</p>
+                            <p>Name: {{ item.name }}</p>
+                            <p>Price: ₹{{ item.price }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No items found.</p>
+        {% endif %}
+
+        <p>Shipping Address: {{ address1 }}{% if address2 %}, {{ address2 }}{% endif %}, {{ city }}, {{ state }}, {{ zip_code }}</p>
+        <p>Phone: {{ phone }}</p>
+       
+    {% else %}
+        <p>We couldn't find your order. Please contact support if you believe this is an error.</p>
+    {% endif %}
+
+    <a href="/">Return to Home</a>
+</body>
+</html>
